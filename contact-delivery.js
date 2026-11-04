@@ -26,6 +26,12 @@
     return `https://formsubmit.co/ajax/${value}`;
   }
 
+  function toFormData(fields) {
+    const fd = new FormData();
+    Object.entries(fields).forEach(([key, value]) => fd.append(key, String(value ?? '')));
+    return fd;
+  }
+
   function brief(values, recipient = DEFAULT_RECIPIENT) {
     const v = Object.fromEntries(
       Object.entries(values).map(([key, value]) => [
@@ -113,11 +119,10 @@ ${v.email}`;
         try {
           const response = await fetchImpl(url, {
             method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              Accept: 'application/json',
-            },
-            body: JSON.stringify({
+            // No Content-Type header: the browser sends multipart/form-data, which counts as a
+            // "simple" CORS request, so no OPTIONS preflight is triggered.
+            headers: { Accept: 'application/json' },
+            body: toFormData({
               _captcha: 'false',
               _template: 'table',
               ...payload,
