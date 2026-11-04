@@ -109,11 +109,34 @@ ${v.email}`;
       build(payload) {
         // FormSubmit-only fields (_honey, _captcha, _template) are not forwarded.
         const { _honey, _subject, _captcha, _template, ...rest } = payload;
+
+        // Web3Forms shows each field name as the row label, so use readable labels
+        // and put the message last.
+        const labels = [
+          ['name', 'Name'],
+          ['email', 'Email'],
+          ['service', 'Service'],
+          ['platform', 'Platform'],
+          ['timeline', 'Timing'],
+          ['market', 'Language / market'],
+        ];
+        const known = new Set([...labels.map(([key]) => key), 'message']);
+        const fields = {};
+        labels.forEach(([key, label]) => {
+          if (String(rest[key] ?? '').trim()) fields[label] = rest[key];
+        });
+        Object.keys(rest).forEach((key) => {
+          if (!known.has(key) && String(rest[key] ?? '').trim()) fields[key] = rest[key];
+        });
+        if (String(rest.message ?? '').trim()) fields.Message = rest.message;
+
         return toFormData({
-          ...rest,
+          ...fields,
           access_key: accessKey,
-          subject: _subject || 'Portfolio project inquiry',
-          from_name: rest.name || 'Portfolio contact form',
+          subject:
+            _subject ||
+            `New portfolio inquiry: ${rest.service || 'General'} (${rest.name || 'Visitor'})`,
+          from_name: 'Portfolio Contact Form',
         });
       },
     };
