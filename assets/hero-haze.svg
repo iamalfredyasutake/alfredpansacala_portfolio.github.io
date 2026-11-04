@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 700" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="mist" x2="1" y2=".3">
+      <stop stop-color="#a3a1aa" stop-opacity="0"/>
+      <stop offset=".37" stop-color="#9c99a3" stop-opacity=".14"/>
+      <stop offset=".71" stop-color="#bbb8c0" stop-opacity=".43"/>
+      <stop offset="1" stop-color="#a9a5af" stop-opacity=".06"/>
+    </linearGradient>
+    <linearGradient id="wisp" x1=".08" y1="1" x2=".95" y2=".1">
+      <stop stop-color="#d0ccd3" stop-opacity="0"/>
+      <stop offset=".44" stop-color="#c4bdc8" stop-opacity=".08"/>
+      <stop offset=".78" stop-color="#ccc8cf" stop-opacity=".38"/>
+      <stop offset="1" stop-color="#9d969e" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="edge" x1=".35" y1="1" x2="1" y2=".1">
+      <stop stop-color="#7e2637" stop-opacity="0"/>
+      <stop offset=".65" stop-color="#a03947" stop-opacity=".47"/>
+      <stop offset="1" stop-color="#ad3047" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="wide" x="-35%" y="-60%" width="170%" height="220%">
+      <feGaussianBlur stdDeviation="34"/>
+    </filter>
+    <filter id="soft" x="-25%" y="-75%" width="150%" height="250%">
+      <feGaussianBlur stdDeviation="13"/>
+    </filter>
+    <filter id="curl" x="-25%" y="-60%" width="150%" height="220%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+    <radialGradient id="fade" cx=".65" cy=".48" r=".63" gradientTransform="translate(0 .06) scale(1 .88)">
+      <stop offset=".39" stop-color="white"/>
+      <stop offset=".76" stop-color="white" stop-opacity=".9"/>
+      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="vignette">
+      <rect width="1100" height="700" fill="url(#fade)"/>
+    </mask>
+  </defs>
+  <g fill="none" mask="url(#vignette)">
+    <path d="M118 641c183-152 449-119 472-291 21-157 174-222 455-253" stroke="url(#mist)" stroke-width="126" filter="url(#wide)"/>
+    <path d="M324 631c218-104 322-109 454-175 168-83-12-222 267-266" stroke="url(#edge)" stroke-width="100" filter="url(#wide)"/>
+    <path d="M178 615c106-137 235-131 363-181 169-66 79-160 175-231 66-49 163-52 275-87" stroke="url(#mist)" stroke-width="43" filter="url(#soft)"/>
+    <path d="M325 668c116-125 175-87 308-135 89-32 203-111 159-189-35-63 5-144 186-203" stroke="url(#wisp)" stroke-width="25" filter="url(#soft)"/>
+    <path d="M231 597c101-75 224-62 309-112 114-69 21-114 96-212 67-88 226-106 381-159" stroke="url(#wisp)" stroke-width="16" filter="url(#curl)"/>
+    <path d="M390 655c114-125 242-71 387-192 128-107-90-131 45-227 74-53 174-57 206-128" stroke="url(#wisp)" stroke-width="9" filter="url(#curl)"/>
+    <path d="M273 558c188-134 207-63 283-175 65-96-16-142 136-214 54-26 157-30 259-78" stroke="url(#wisp)" stroke-width="10" filter="url(#curl)"/>
+  </g>
+</svg>

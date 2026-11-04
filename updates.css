@@ -1,0 +1,67 @@
+/* Numbered editorial chapters, independent QA exercises and reliable contact states. */
+.chapter-heading{min-width:0;max-width:100%}
+.section-index{display:flex;align-items:baseline;gap:12px;font:650 12px/1.6 var(--body);letter-spacing:.08em;color:var(--muted);margin:0 0 20px;max-width:none;overflow-wrap:anywhere}
+.section-index>span:first-child{font-variant-numeric:tabular-nums;color:var(--bright);letter-spacing:0;flex-shrink:0}
+.paper .section-index{color:var(--paper-muted)}.paper .section-index>span:first-child{color:var(--red)}
+.red-section .section-index{color:var(--pale)}.red-section .section-index>span:first-child{color:var(--ink)}
+.career>.section-index,.principle>.section-index{margin:0 0 28px;font-size:12px}
+.scroll-progress{position:fixed;inset:0 0 auto;height:2px;z-index:60;pointer-events:none;background:var(--bright);transform:scaleX(0);transform-origin:left}
+.qa-selector{padding-bottom:24px;border-bottom:1px solid #c8c5c1;margin-bottom:28px;min-width:0}
+.qa-selector>label{font-size:13px;margin-bottom:16px}
+.qa-selector select{display:none;background:#faf9f6;color:var(--paper-ink);border-color:#aaa49c}
+.qa-selector .choice-row{gap:7px}.qa-selector button{font-size:12px;min-height:44px;padding:9px 12px;border-color:#aaa49c}
+.qa-selector button[aria-pressed=true]{border-color:var(--red)}
+.qa-exercise{min-width:0;overflow-wrap:anywhere}
+.qa-exercise>.exercise-intro{font-size:15px;line-height:1.8;color:var(--paper-muted);margin-block:20px 28px}
+.qa-exercise>label{font-size:13px;margin-top:24px}
+.qa-exercise input{font-size:16px;background:#faf9f6;color:var(--paper-ink);border-color:#aaa49c;border-radius:5px;min-height:48px;max-width:100%}
+.qa-exercise>.button,.sample-actions>.button{font-size:13px;min-height:46px}
+.sample-test{border:1px solid #9f9a93;background:#faf9f6;color:var(--paper-ink);border-radius:6px;white-space:normal}
+.boundary-presets{display:flex;gap:8px;margin-block:12px 20px;flex-wrap:wrap}
+.boundary-presets button{min-width:44px;min-height:44px;padding:8px 12px;background:#dedbd7;color:var(--paper-ink);border-radius:5px;font-size:14px;font-variant-numeric:tabular-nums}
+.sample-result{padding:16px 0;border-block:1px solid #c8c5c1;font-size:14px;color:var(--paper-muted);line-height:1.8;margin-block:24px;min-height:54px}
+.sample-result[data-result=issue]{color:#94202f}.sample-result[data-result=pass]{color:#315343}
+.sample-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:24px}
+.sample-actions .text-button{font-size:13px;min-height:44px}
+.retry-counts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;border-block:1px solid #c8c5c1;padding-block:22px;margin-block:24px}
+.retry-counts dt{font-size:12px;color:var(--paper-muted)}
+.retry-counts dd{font:450 38px/1.4 var(--display);font-variant-numeric:tabular-nums;color:var(--paper-ink);margin:6px 0 0}
+.sample-log{list-style:none;margin:20px 0 0;padding:0;max-height:180px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#aaa49c transparent;overscroll-behavior:contain}
+.sample-log li{font-size:13px;color:var(--paper-muted);padding-block:10px;border-bottom:1px solid #c8c5c1}
+.sample-search-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:start}
+.sample-search-row .button{font-size:13px;min-height:48px;padding:12px 16px}
+.sample-products{border-top:1px solid #c8c5c1}
+.sample-products li{font-size:16px;padding-block:14px;border-bottom:1px solid #c8c5c1}
+.sample-empty{font-size:15px;line-height:1.8;color:var(--paper-muted);padding:24px;background:#dedbd7;border-radius:5px}
+.form-trap{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;pointer-events:none}
+.form-trap label,.form-trap input{margin:0!important}
+.optional-label{font-size:12px;font-weight:400;color:var(--pale)}
+.guided-brief .delivery-note{font-size:12px;color:var(--pale);line-height:1.8;margin:20px 0 0}
+.delivery-feedback{padding:24px;border:1px solid #d89ca6;border-radius:8px;margin-top:20px;background:#46151e;min-width:0;overflow-wrap:anywhere}
+.delivery-feedback[data-state=error]{border-color:var(--bright)}
+.delivery-feedback h4{font-size:21px;line-height:1.45;margin-bottom:14px;color:var(--ink)}
+.delivery-feedback p{font-size:14px;color:var(--pale);line-height:1.8}
+#delivery-fallback{display:flex;align-items:center;gap:8px 20px;flex-wrap:wrap;margin-top:18px}
+#delivery-fallback .plain-link,#delivery-fallback .text-button,#send-another-brief{font-size:13px;min-height:44px;padding:8px 0}
+#delivery-fallback p{font-size:12px;flex-basis:100%}
+#brief-copy-text{flex-basis:100%;background:#33131b;color:var(--ink);font-size:16px;margin-top:12px}
+#send-another-brief{margin-top:16px}
+.guided-brief[aria-busy=true] #brief-submit{opacity:1;cursor:progress}
+@media(hover:hover) and (pointer:fine){
+ .qa-selector button:not([aria-pressed=true]):hover,.boundary-presets button:hover{background:#d9d5d0}
+ .sample-test:hover{border-color:var(--red)}
+}
+@media(max-width:800px){.section-index{margin-bottom:16px}.qa-selector .choice-row{gap:8px}.qa-exercise>.exercise-intro{max-width:62ch}}
+@media(max-width:600px){
+ .section-index{font-size:12px;gap:10px;letter-spacing:.06em}.hero-copy>.section-index{margin-bottom:20px}
+ .qa-selector .choice-row{display:none}.qa-selector select{display:block}.qa-selector>label{margin-bottom:12px}
+ .qa-exercise>.exercise-intro{font-size:14px;margin-block:18px 24px}.sample-result{font-size:13px}
+ .qa-exercise>.button,.sample-actions>.button{font-size:12px}
+ .sample-actions{gap:8px 16px}.sample-actions .text-button{font-size:12px}
+ .sample-search-row{grid-template-columns:minmax(0,1fr)}.sample-search-row>.button{justify-self:start}
+ .sample-empty{padding:20px;font-size:14px}.sample-products li{font-size:15px}
+ .retry-counts{gap:16px}.retry-counts dd{font-size:34px}
+ .delivery-feedback{padding:20px}.delivery-feedback h4{font-size:20px}.delivery-feedback p{font-size:13px}
+ .brief-actions{flex-wrap:wrap}.brief-actions>#brief-submit{margin-left:auto}
+}
+@media(prefers-reduced-motion:reduce){.scroll-progress{transition:none}}
